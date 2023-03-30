@@ -1,3 +1,14 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFFDFA;
+  color: #363636;
+  font-size: 50pt;
+  font-family: url("./src/font/nal.otf");
+}
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
