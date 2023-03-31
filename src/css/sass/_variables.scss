@@ -1,6 +1,5 @@
-//fonts
-$title-font: url("./src/font/nal.otf");
-
+$title-font: nal, sans-serif;
+$main-font: Quicksand, sans-serif;
 
 //colors
 $white: #FFFDFA;
@@ -12,7 +11,7 @@ $orange: #FC6B0A;
 $jet: #363636;
 $black: #232B2B;
 
-//quicklist, colors lightest to darkest
+//quick list, colors lightest to darkest
 $c1: $white;
 $c2: $platinum;
 $c3: $coolgrey;
