@@ -1,4 +1,4 @@
-import * as THREE from "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
+import * as THREE from "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.js";
 
 window.addEventListener("load", init);
 
@@ -10,7 +10,7 @@ function init() {
   scene.background = new THREE.Color(0x050505);
   
   const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-  cameraSetBackDist = 7;
+  let cameraSetBackDist = 7;
   camera.position.z = cameraSetBackDist;
   
   const light = new THREE.PointLight(0xffffff, 2);
