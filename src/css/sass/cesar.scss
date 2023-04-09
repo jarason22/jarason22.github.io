@@ -29,7 +29,7 @@ main {
 
 .card {
   position: relative;
-  width: 350px;
+  width: 450px;
   height: 190px;
   bottom: 0;
   background-color: $white;
@@ -37,8 +37,6 @@ main {
   box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
   transition: 0.5s;
   margin: 50px 10px 0 10px;
-  transform-style: preserve-3d;
-  transform-origin: center right;
 }
 
 .card:hover {
@@ -56,8 +54,10 @@ main {
   border-radius: 20px;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
   overflow: hidden;
-  transition: 0.5s;
+  transition: all 0.5s, transform 0s;
   background-size: cover;
+  transform-style: preserve-3d;
+  transform-origin: center center;
 }
 
 #ryan.imgBx {
@@ -104,23 +104,29 @@ main {
   transform-origin: center right;
   opacity: 0;
   font-family: $body-font;
-  font-size: 18pt;
   border-radius: 10px;
+  padding: 10px;
 }
 
 .card:hover .content .msg {
   opacity: 1;
 }
 
+.card.is-flipped:hover .content .msg {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
 .card:hover .content .name-tag {
-  margin-top: 0;
+  margin-top: -25px;
+  transition-duration: 0.7s;
 }
 
 .card .content .name-tag {
-  font-size: 30pt;
+  font-size: 40pt;
   font-family: $title-font;
   width: 100%;
   height: fit-content;
+  font-weight: bold;
   position: absolute;
   text-align: center;
   top: 50%;
@@ -133,22 +139,29 @@ main {
 
 .card .msg .face {
   position: absolute;
-  width: 100%;
+  width: calc(100% - 20px);
   height: 0;
   color: $jet;
   text-align: center;
-  font-size: 17pt;
+  font-size: 20pt;
   backface-visibility: hidden;
   padding: 10px;
   bottom: 0;
   font-style: italic;
-  transition-duration: 0.7s;
+  transition: all 0.7s, text-shadow 0s linear;
+  border: 1px solid $jet;
 }
 
 .card:hover .msg .face {
   height: 180px;
+  bottom: 10px;
+}
+
+.face.eng {
+  text-shadow: 1px 1px 10px $blue;
 }
 
 .face.span {
   transform: rotateY(180deg);
+  text-shadow: 1px 1px 10px $pink;
 }
