@@ -33,8 +33,8 @@ const main = document.querySelector("main");
 main.addEventListener("mousemove", (e) => {
   const arrow = document.querySelector("main.inactive .arrow-wrap");
   if (arrow) {
-    arrow.style.transition = "0.1s";
-    arrow.style.transform = `translateX(118px) translateY(${
+    arrow.style.transition = "0s";
+    arrow.style.transform = `translateY(${
       e.clientY - window.innerHeight / 2
     }px)`;
   }
@@ -43,7 +43,7 @@ main.addEventListener("mousemove", (e) => {
 main.addEventListener("mouseleave", (e) => {
   const arrow = document.querySelector("main.inactive .arrow-wrap");
   if (arrow) {
-    arrow.style.transform = `translateX(88px) translateY(0px)`;
+    arrow.style.transform = `translateY(0px)`;
   }
 });
 

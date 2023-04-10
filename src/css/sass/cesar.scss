@@ -61,14 +61,13 @@ main.inactive:hover .imgBx {
 
 main.inactive:hover .arrow-wrap {
   filter: drop-shadow(5px 0 3px $white);
-  transform: translateX(118px);
   transition-duration: 1s;
 }
 
 main.inactive .arrow-wrap {
   position: absolute;
   top: calc(50% - 25px);
-  transform: translateX(88px);
+  right: -38px;
   z-index: -1;
 }
 
@@ -95,7 +94,7 @@ main:not(.inactive) {
   border-radius: 20px;
   box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
   transition: 0.5s;
-  margin: 50px 25px 0 25px;
+  margin: 50px 25px 20px 25px;
   pointer-events: none;
   flex-grow: 40%;
 }

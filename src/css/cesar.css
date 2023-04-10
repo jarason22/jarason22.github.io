@@ -131,14 +131,13 @@ main.inactive:hover .imgBx {
 
 main.inactive:hover .arrow-wrap {
   filter: drop-shadow(5px 0 3px #FFFDFA);
-  transform: translateX(118px);
   transition-duration: 1s;
 }
 
 main.inactive .arrow-wrap {
   position: absolute;
   top: calc(50% - 25px);
-  transform: translateX(88px);
+  right: -38px;
   z-index: -1;
 }
 
@@ -166,7 +165,7 @@ main:not(.inactive) {
   border-radius: 20px;
   box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
   transition: 0.5s;
-  margin: 50px 25px 0 25px;
+  margin: 50px 25px 20px 25px;
   pointer-events: none;
   flex-grow: 40%;
 }
@@ -295,8 +294,7 @@ main:not(.inactive) .card {
   width: calc(100% - 20px);
   color: #363636;
   text-align: center;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   padding: 10px;
   top: 90px;
   font-size: 20pt;
