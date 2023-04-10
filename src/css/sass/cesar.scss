@@ -7,6 +7,7 @@ body {
   background-color: $jet;
   height: 100vh;
   width: 100vw;
+  cursor: default !important;
 }
 
 * {
@@ -18,43 +19,108 @@ body {
 main {
   position: absolute;
   display: flex;
-  height: fit-content;
-  flex-wrap: wrap;
-  width: 100vw;
   bottom: 0;
-  min-height: 60vh;
   justify-content: center;
   align-items: center;
+  background-color: $jetAA;
+}
+
+main.inactive {
+  flex-direction: column;
+  width: 140px;
+  height: 100vh;
+  z-index: 2;
+  justify-content: space-evenly;
+  box-shadow: inset -8px 0 5px $jet, inset -15px 0 10px $jetAA;
+  transition-duration: all 0.5s, translate 0s;
+  padding-bottom: 50vh;
+}
+
+main.inactive:hover {
+  box-shadow: 0 5px 5px $white, inset -8px 0 5px $jet, inset -15px 0 10px $jetAA;
+  padding-bottom: 0;
+  width: 200px;
+}
+
+main.inactive * {
+  padding: 0;
+  margin: 0;
+  top: 0;
+  border: 0;
+  transition-duration: transform 0s, box-shadow 0.5s;
+}
+
+main.inactive .imgBx {
+  transform: scale(0.5) translateX(-100%);
+  top: 0;
+}
+
+main.inactive:hover .imgBx {
+  transform: scale(1) translateX(-50%);
+}
+
+main.inactive:hover .arrow-wrap {
+  filter: drop-shadow(5px 0 3px $white);
+  transform: translateX(118px);
+  transition-duration: 1s;
+}
+
+main.inactive .arrow-wrap {
+  position: absolute;
+  top: calc(50% - 25px);
+  transform: translateX(88px);
+  z-index: -1;
+}
+
+main.inactive .arrow {
+  height: 64px;
+  width: 40px;
+  clip-path: polygon(0 0, 0 100%, 100% 50%);
+  background-color: $jet;
+}
+
+main:not(.inactive) {
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100vw;
+  min-height: 60vh;
 }
 
 .card {
   position: relative;
-  width: 450px;
-  height: 190px;
+  width: 0;
   bottom: 0;
+  height: 150px;
   background-color: $white;
   border-radius: 20px;
   box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
   transition: 0.5s;
-  margin: 50px 10px 0 10px;
+  margin: 50px 25px 0 25px;
+  pointer-events: none;
+  flex-grow: 40%;
+}
+
+main:not(.inactive) .card {
+  min-width: 500px;
+  pointer-events: all;
 }
 
 .card:hover {
-  height: 450px;
+  height: 300px;
 }
 
 .imgBx {
   position: absolute;
   left: 50%;
-  top: -50px;
+  top: -30%;
   transform: translateX(-50%);
   width: 150px;
   height: 150px;
   background-color: $white;
-  border-radius: 20px;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+  border-radius: 50%;
+  box-shadow: 0 5px 15px $jetAA;
   overflow: hidden;
-  transition: all 0.5s, transform 0s;
+  transition: all 0.5s, transform 0s, box-shadow 0s;
   background-size: cover;
   transform-style: preserve-3d;
   transform-origin: center center;
@@ -77,8 +143,8 @@ main {
 }
 
 .card:hover .imgBx {
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
 }
 
 .card .content {
@@ -93,8 +159,6 @@ main {
 }
 
 .card .content .msg {
-  position: relative;
-  text-align: center;
   width: 100%;
   height: 100%;
   transform-origin: bottom;
@@ -116,13 +180,9 @@ main {
   transform: translateX(-100%) rotateY(-180deg);
 }
 
-.card:hover .content .name-tag {
-  margin-top: -25px;
-  transition-duration: 0.7s;
-}
-
 .card .content .name-tag {
-  font-size: 40pt;
+  font-size: 30pt;
+  line-height: 30pt;
   font-family: $title-font;
   width: 100%;
   height: fit-content;
@@ -130,7 +190,25 @@ main {
   position: absolute;
   text-align: center;
   top: 50%;
-  margin-top: 25px;
+  left: 0;
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  column-gap: 15px;
+  transition-duration: 0.7s;
+}
+
+.card:hover .content .name-tag {
+  top: 0;
+  margin-top: 0;
+  column-gap: 250px;
+}
+
+.card:hover .content .name-tag span {
+  width: min-content;
+  display: flex;
+  align-items: center;
+  height: 100px;
 }
 
 .card.is-flipped .msg {
@@ -140,21 +218,25 @@ main {
 .card .msg .face {
   position: absolute;
   width: calc(100% - 20px);
-  height: 0;
   color: $jet;
   text-align: center;
-  font-size: 20pt;
   backface-visibility: hidden;
   padding: 10px;
-  bottom: 0;
+  top: 90px;
+  font-size: 20pt;
   font-style: italic;
   transition: all 0.7s, text-shadow 0s linear;
-  border: 1px solid $jet;
+  border: 1px solid #00000000;
+  transform: scaleY(0);
+  display: flex;
+  align-items: center;
 }
 
 .card:hover .msg .face {
-  height: 180px;
-  bottom: 10px;
+  border: 1px solid $jet;
+  transform: scaleY(1);
+  transform-origin: bottom;
+  height: 200px;
 }
 
 .face.eng {
@@ -164,4 +246,8 @@ main {
 .face.span {
   transform: rotateY(180deg);
   text-shadow: 1px 1px 10px $pink;
+}
+
+.card:hover .msg .face.span {
+  transform: rotateY(180deg) scaleY(1);
 }
