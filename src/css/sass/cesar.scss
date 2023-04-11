@@ -85,6 +85,13 @@ main:not(.inactive) {
   min-height: 60vh;
 }
 
+main.inactive section {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .card {
   position: relative;
   width: 0;
@@ -94,7 +101,7 @@ main:not(.inactive) {
   border-radius: 20px;
   box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
   transition: 0.5s;
-  margin: 50px 25px 20px 25px;
+  margin: 50px 25px 30px 25px;
   pointer-events: none;
   flex-grow: 40%;
 }
@@ -106,6 +113,11 @@ main:not(.inactive) .card {
 
 .card:hover {
   height: 300px;
+}
+
+main:not(.inactive) .card:hover {
+  margin-top: 100px;
+  margin-bottom: 60px !important;
 }
 
 .imgBx {
