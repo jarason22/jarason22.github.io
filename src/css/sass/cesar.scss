@@ -275,10 +275,6 @@ main:not(.inactive) .card:hover .msg .face.span {
   transform: rotateY(180deg) scaleY(1);
 }
 
-
-
-
-
 // message boxes
 main.inactive .card .imgBx:hover::after {
   position: absolute;
