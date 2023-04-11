@@ -1,6 +1,3 @@
-import * as THREE from "https://cdnjs.cloudflare.com/ajax/libs/three.js/r108/three.module.js";
-// /import { init } from "./cesarCube.js"
-
 import { init } from "./cesarImages.js";
 
 init();
@@ -85,7 +82,7 @@ const transformElement = (e, c) => {
   const inactive = document.querySelector("main.inactive");
   let num = 12;
   if (inactive) num = 5;
-  
+
   let { clientX: mX, clientY: mY } = e;
   let { x, y } = c.getBoundingClientRect();
   let { offsetWidth: w, offsetHeight: h } = c;
