@@ -23,6 +23,7 @@ main {
   justify-content: center;
   align-items: center;
   background-color: $jetAA;
+  cursor: pointer;
 }
 
 main.inactive {
@@ -108,11 +109,10 @@ main.inactive section {
   margin: 50px 25px 30px 25px;
   pointer-events: none;
   flex-grow: 40%;
-  border: 2px solid $orange55;
-  background-color: $coolgreyAA;
+  background-color: $platinumAA;
 }
 
-.card:hover {
+main:not(.inactive) .card:hover {
   border: 3px solid $orangeAA;
 }
 
@@ -136,7 +136,6 @@ main:not(.inactive) .card:hover {
   height: 150px;
   border-radius: 50%;
   box-shadow: 0 5px 15px $jetAA;
-  overflow: hidden;
   transition: all 0.5s, transform 0s, box-shadow 0s;
   background-size: cover;
   transform-style: preserve-3d;
@@ -260,6 +259,7 @@ main:not(.inactive) .card:hover .msg .face {
   transform-origin: bottom;
   height: 200px;
   background-color: $white;
+  border-radius: 5px;
 }
 
 .face.eng {
@@ -279,8 +279,98 @@ main:not(.inactive) .card:hover .msg .face.span {
 
 
 
-// message boxes 
+// message boxes
+main.inactive .card .imgBx:hover::after {
+  position: absolute;
+  font-size: 20pt;
+  font-family: $body-font;
+  top: -25px;
+  right: -600px;
+  width: 530px;
+  height: fit-content;
+  background-color: $whiteAA;
+  border: 3px solid $blueAA;
+  border-radius: 40px;
+  padding: 15px;
+  transition: 0.7s ease-out;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  box-shadow: 5px 3px 10px $jetAA, 5px 3px 15px $jetAA;
+}
 
+main.inactive .card .imgBx:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -62px;
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  background-color: $white;
+  transition: 0.7s ease-out;
+  border: 2px solid $blueAA;
+}
+
+main.inactive .card:hover::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: -100px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: $white;
+  transition: 0.7s ease-out;
+  border: 2px solid $blueAA;
+}
+
+main.inactive .card.is-flipped .imgBx:hover::after {
+  top: 20%;
+  border: 3px solid $pinkAA;
+}
+
+main.inactive .card.is-flipped .imgBx:hover::before {
+  top: 70%;
+  border: 2px solid $pinkAA;
+}
+
+main.inactive .card.is-flipped:hover::after {
+  top: 70%;
+  border: 2px solid $pinkAA;
+}
+
+main.inactive .card:not(.is-flipped) #brandon:hover::after {
+  content: var(--b-eng);
+}
+
+main.inactive .card.is-flipped #brandon:hover::after {
+  content: var(--b-span);
+}
+
+main.inactive .card:not(.is-flipped) #gma:hover::after {
+  content: var(--g-eng);
+}
+
+main.inactive .card.is-flipped #gma:hover::after {
+  content: var(--g-span);
+}
+
+main.inactive .card:not(.is-flipped) #john:hover::after {
+  content: var(--j-eng);
+}
+
+main.inactive .card.is-flipped #john:hover::after {
+  content: var(--j-span);
+}
+
+main.inactive .card:not(.is-flipped) #ryan:hover::after {
+  content: var(--r-eng);
+}
+
+main.inactive .card.is-flipped #ryan:hover::after {
+  content: var(--r-span);
+}
 
 
 
@@ -333,4 +423,21 @@ main:not(.inactive) .card:hover .msg .face.span {
     width: var(--coin-size);
     box-shadow: 0 0 0 var(--side-dark);
   }
+}
+
+
+
+
+
+
+//texts
+:root {
+  --b-eng: '"César, I hope you have a wonderful, relaxing time with your family on vacation. You all deserve it!"';
+  --b-span: '"César, espero que tengas un tiempo maravilloso y relajante con tu familia de vacaciones. ¡Todos ustedes se lo merecen!"';
+  --g-eng: '"We are so glad to have you as part of the family. Please have a great time on your trip and stay safe. We love you!"';
+  --g-span: '"Estamos tan felices de tenerlo como parte de la familia. Por favor, pásenla bien en el viaje y cuídense mucho. ¡Lo queremos!"';
+  --j-eng: '"Hi, my love, I am very happy that you and your family are able to go on this trip together. I love you so much!"';
+  --j-span: '"Hola, amor mío, me alegro de que tú y tu familia sean capaces de realizar este viaje juntos. ¡Te quiero demasiado!"';
+  --r-eng: '"Hi César! I hope you have a great trip with your family and take lots of pictures. Also congrats on your engagement!!"';
+  --r-span: '"Hola César! Espero que tenga un gran viaje con tu familia y tome muchas fotos. !Felicidades por el compromiso!"';
 }

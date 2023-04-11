@@ -82,13 +82,17 @@ const shadow = (e, c) => {
 };
 
 const transformElement = (e, c) => {
+  const inactive = document.querySelector("main.inactive");
+  let num = 12;
+  if (inactive) num = 5;
+  
   let { clientX: mX, clientY: mY } = e;
   let { x, y } = c.getBoundingClientRect();
   let { offsetWidth: w, offsetHeight: h } = c;
   let xCenter = x + w / 2;
   let yCenter = y + h / 2;
-  let calcX = -(mY - yCenter) / 10;
-  let calcY = (mX - xCenter) / 13;
+  let calcX = -(mY - yCenter) / num;
+  let calcY = (mX - xCenter) / num;
 
   let img = e.currentTarget.querySelector(".imgBx");
   img.style.transform =
