@@ -1,6 +1,3 @@
-import * as THREE from "https://cdnjs.cloudflare.com/ajax/libs/three.js/r108/three.module.js";
-// /import { init } from "./cesarCube.js"
-
 import { init } from "./cesarImages.js";
 
 init();
@@ -32,6 +29,7 @@ const main = document.querySelector("main");
 
 main.addEventListener("mousemove", (e) => {
   const arrow = document.querySelector("main.inactive .arrow-wrap");
+  
   if (arrow) {
     arrow.style.transition = "0s";
     arrow.style.transform = `translateY(${
@@ -82,13 +80,17 @@ const shadow = (e, c) => {
 };
 
 const transformElement = (e, c) => {
+  const inactive = document.querySelector("main.inactive");
+  let num = 12;
+  if (inactive) num = 5;
+
   let { clientX: mX, clientY: mY } = e;
   let { x, y } = c.getBoundingClientRect();
   let { offsetWidth: w, offsetHeight: h } = c;
   let xCenter = x + w / 2;
   let yCenter = y + h / 2;
-  let calcX = -(mY - yCenter) / 10;
-  let calcY = (mX - xCenter) / 13;
+  let calcX = -(mY - yCenter) / num;
+  let calcY = (mX - xCenter) / num;
 
   let img = e.currentTarget.querySelector(".imgBx");
   img.style.transform =
