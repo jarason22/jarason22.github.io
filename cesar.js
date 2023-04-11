@@ -29,6 +29,7 @@ const main = document.querySelector("main");
 
 main.addEventListener("mousemove", (e) => {
   const arrow = document.querySelector("main.inactive .arrow-wrap");
+  
   if (arrow) {
     arrow.style.transition = "0s";
     arrow.style.transform = `translateY(${
