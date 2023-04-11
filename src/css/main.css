@@ -1,3 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap");
+@font-face {
+  font-family: "nal";
+  src: url("./../font/nal.otf");
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFFDFA;
+  color: #363636;
+  font-size: 50pt;
+  font-family: nal, sans-serif;
+}
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -56,4 +72,11 @@ p, h1, h2, h3, h4, h5, h6 {
 */
 #root, #__next {
   isolation: isolate;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
 }/*# sourceMappingURL=main.css.map */

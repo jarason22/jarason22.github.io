@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "nal";
+    src: url("./../font/nal.otf");
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $white;
+    color: $jet;
+    font-size: 50pt;
+    font-family: $title-font;
+}

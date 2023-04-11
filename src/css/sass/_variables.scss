@@ -1,3 +1,6 @@
+$title-font: nal, sans-serif;
+$body-font: Quicksand, sans-serif;
+
 //colors
 $white: #FFFDFA;
 $platinum: #E5E5E5;
@@ -8,7 +11,7 @@ $orange: #FC6B0A;
 $jet: #363636;
 $black: #232B2B;
 
-//quicklist, colors lightest to darkest
+//quick list, colors lightest to darkest
 $c1: $white;
 $c2: $platinum;
 $c3: $coolgrey;
@@ -17,4 +20,15 @@ $c5: $pink;
 $c6: $orange;
 $c7: $jet;
 $c8: $black;
+
+//semi-transparent colors
+$whiteAA: #FFFDFAAA;
+$platinumAA: #E5E5E5AA;
+$coolgreyAA: #8B8BAEAA;
+$blueAA: #1985A1AA;
+$pinkAA: #E56399AA;
+$orangeAA: #FC6B0AAA;
+$orange55: #FC6B0A55;
+$jetAA: #363636AA;
+$blackAA: #232B2BAA;
 

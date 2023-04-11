@@ -1,0 +1,384 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i");
+@font-face {
+  font-family: "nal";
+  src: url("./../font/nal.otf");
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFFDFA;
+  color: #363636;
+  font-size: 50pt;
+  font-family: nal, sans-serif;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+/*
+  3. Allow percentage-based heights in the application
+*/
+html, body {
+  height: 100%;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  6. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  7. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+
+/*
+  8. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+body {
+  background-color: #363636;
+  height: 100vh;
+  width: 100vw;
+  cursor: default !important;
+}
+
+* {
+  transition-duration: 1s;
+}
+
+main {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(54, 54, 54, 0.6666666667);
+}
+
+main.inactive {
+  flex-direction: column;
+  width: 140px;
+  height: 100vh;
+  z-index: 2;
+  justify-content: space-evenly;
+  box-shadow: inset -8px 0 5px #363636, inset -15px 0 10px rgba(54, 54, 54, 0.6666666667);
+  transition-duration: all 0.5s, translate 0s;
+  padding-bottom: 50vh;
+}
+
+main.inactive:hover {
+  box-shadow: 0 5px 5px #FFFDFA, inset -8px 0 5px #363636, inset -15px 0 10px rgba(54, 54, 54, 0.6666666667);
+  padding-bottom: 0;
+  width: 200px;
+}
+
+main.inactive * {
+  padding: 0;
+  margin: 0;
+  top: 0;
+  border: 0;
+  transition-duration: transform 0s, box-shadow 0.5s;
+}
+
+main.inactive .imgBx {
+  transform: scale(0.5) translateX(-100%);
+  top: 0;
+}
+
+main.inactive:hover .imgBx {
+  transform: scale(1) translateX(-50%);
+}
+
+main.inactive:hover .arrow-wrap {
+  filter: drop-shadow(5px 0 3px #FFFDFA);
+  transition-duration: 1s;
+}
+
+main.inactive .arrow-wrap {
+  position: absolute;
+  top: calc(50% - 25px);
+  right: -38px;
+  z-index: -1;
+}
+
+main.inactive .arrow {
+  height: 64px;
+  width: 40px;
+  -webkit-clip-path: polygon(0 0, 0 100%, 100% 50%);
+          clip-path: polygon(0 0, 0 100%, 100% 50%);
+  background-color: #363636;
+}
+
+main:not(.inactive) {
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100vw;
+  min-height: 60vh;
+}
+
+main.inactive:hover .imgBx {
+  pointer-events: all;
+}
+
+main.inactive section {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.card {
+  position: relative;
+  width: 0;
+  bottom: 0;
+  height: 150px;
+  background-color: #FFFDFA;
+  border-radius: 20px;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+  transition: 0.5s;
+  margin: 50px 25px 30px 25px;
+  pointer-events: none;
+  flex-grow: 40%;
+  border: 2px solid rgba(252, 107, 10, 0.3333333333);
+  background-color: rgba(139, 139, 174, 0.6666666667);
+}
+
+.card:hover {
+  border: 3px solid rgba(252, 107, 10, 0.6666666667);
+}
+
+main:not(.inactive) .card {
+  min-width: 500px;
+  pointer-events: all;
+}
+
+main:not(.inactive) .card:hover {
+  height: 300px;
+  margin-top: 100px;
+  margin-bottom: 60px !important;
+}
+
+.imgBx {
+  position: absolute;
+  left: 50%;
+  top: -30%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(54, 54, 54, 0.6666666667);
+  overflow: hidden;
+  transition: all 0.5s, transform 0s, box-shadow 0s;
+  background-size: cover;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#ryan.imgBx {
+  background-image: url("../cesarPics/ryan.jpg");
+}
+
+#john.imgBx {
+  background-image: url("../cesarPics/john.jpg");
+}
+
+#brandon.imgBx {
+  background-image: url("../cesarPics/brandon.jpg");
+}
+
+#gma.imgBx {
+  background-image: url("../cesarPics/gma.jpg");
+}
+
+main:not(.inactive) .card:hover .imgBx {
+  width: 180px;
+  height: 180px;
+}
+
+.card .content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden;
+  perspective: 600px;
+}
+
+.card .content .msg {
+  width: 100%;
+  height: 100%;
+  transform-origin: bottom;
+  transition-duration: 0.5;
+  bottom: 0;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  opacity: 0;
+  font-family: Quicksand, sans-serif;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+main:not(.inactive) .card:hover .content .msg {
+  opacity: 1;
+}
+
+main:not(.inactive) .card.is-flipped:hover .content .msg {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card .content .name-tag {
+  font-size: 30pt;
+  line-height: 30pt;
+  font-family: nal, sans-serif;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 0;
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+  transition-duration: 0.7s;
+  text-shadow: 1px 1px 5px rgba(255, 253, 250, 0.6666666667);
+}
+
+main:not(.inactive) .card:hover .content .name-tag {
+  top: 0;
+  margin-top: 0;
+  -moz-column-gap: 250px;
+       column-gap: 250px;
+}
+
+main:not(.inactive) .card:hover .content .name-tag span {
+  width: -moz-min-content;
+  width: min-content;
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+
+main:not(.inactive) .card.is-flipped .msg {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card .msg .face {
+  position: absolute;
+  width: calc(100% - 20px);
+  color: #363636;
+  text-align: center;
+  backface-visibility: hidden;
+  padding: 10px;
+  top: 90px;
+  font-size: 20pt;
+  font-style: italic;
+  transition: all 0.7s, text-shadow 0s linear;
+  transform: scaleY(0);
+  display: flex;
+  align-items: center;
+}
+
+main:not(.inactive) .card:hover .msg .face {
+  border: 1px solid #363636;
+  transform: scaleY(1);
+  transform-origin: bottom;
+  height: 200px;
+  background-color: #FFFDFA;
+}
+
+.face.eng {
+  text-shadow: 1px 1px 10px #1985A1;
+}
+
+.face.span {
+  transform: rotateY(180deg);
+  text-shadow: 1px 1px 10px #E56399;
+}
+
+main:not(.inactive) .card:hover .msg .face.span {
+  transform: rotateY(180deg) scaleY(1);
+}
+
+:root {
+  --side: #896c3b;
+  --side-dark: #120e08;
+  --lowlight: #111;
+  --coin-size: 150px;
+}
+
+@keyframes spin {
+  0% {
+    width: var(--coin-size);
+    box-shadow: 0 0 0 var(--side-dark);
+    animation-timing-function: ease-in;
+  }
+  49.999% {
+    width: 0.1rem;
+    box-shadow: 0.05rem 0 0 var(--side), 0.1rem 0 0 var(--side), 0.15rem 0 0 var(--side), 0.2rem 0 0 var(--side), 0.25rem 0 0 var(--side), 0.3rem 0 0 var(--side), 0.35rem 0 0 var(--side), 0.4rem 0 0 var(--side), 0.45rem 0 0 var(--side), 0.5rem 0 0 var(--side), 0.55rem 0 0 var(--side), 0.6rem 0 0 var(--side), 0.65rem 0 0 var(--side), 0.7rem 0 0 var(--side), 0.75rem 0 0 var(--side);
+    transform: translateX(-0.375rem);
+    background-color: var(--lowlight);
+    animation-timing-function: linear;
+  }
+  50.001% {
+    width: 0.1rem;
+    box-shadow: -0.05rem 0 0 var(--side), -0.1rem 0 0 var(--side), -0.15rem 0 0 var(--side), -0.2rem 0 0 var(--side), -0.25rem 0 0 var(--side), -0.3rem 0 0 var(--side), -0.35rem 0 0 var(--side), -0.4rem 0 0 var(--side), -0.45rem 0 0 var(--side), -0.5rem 0 0 var(--side), -0.55rem 0 0 var(--side), -0.6rem 0 0 var(--side), -0.65rem 0 0 var(--side), -0.7rem 0 0 var(--side), -0.75rem 0 0 var(--side);
+    transform: translateX(0.375rem);
+    background-color: var(--lowlight);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    width: var(--coin-size);
+    box-shadow: 0 0 0 var(--side-dark);
+  }
+}/*# sourceMappingURL=cesar.css.map */
