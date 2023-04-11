@@ -85,6 +85,10 @@ main:not(.inactive) {
   min-height: 60vh;
 }
 
+main.inactive:hover .imgBx {
+  pointer-events: all;
+}
+
 main.inactive section {
   height: 50vh;
   display: flex;
@@ -104,6 +108,12 @@ main.inactive section {
   margin: 50px 25px 30px 25px;
   pointer-events: none;
   flex-grow: 40%;
+  border: 2px solid $orange55;
+  background-color: $coolgreyAA;
+}
+
+.card:hover {
+  border: 3px solid $orangeAA;
 }
 
 main:not(.inactive) .card {
@@ -111,11 +121,8 @@ main:not(.inactive) .card {
   pointer-events: all;
 }
 
-.card:hover {
-  height: 300px;
-}
-
 main:not(.inactive) .card:hover {
+  height: 300px;
   margin-top: 100px;
   margin-bottom: 60px !important;
 }
@@ -127,7 +134,6 @@ main:not(.inactive) .card:hover {
   transform: translateX(-50%);
   width: 150px;
   height: 150px;
-  background-color: $white;
   border-radius: 50%;
   box-shadow: 0 5px 15px $jetAA;
   overflow: hidden;
@@ -135,6 +141,11 @@ main:not(.inactive) .card:hover {
   background-size: cover;
   transform-style: preserve-3d;
   transform-origin: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 #ryan.imgBx {
@@ -153,9 +164,9 @@ main:not(.inactive) .card:hover {
   background-image: url("../cesarPics/gma.jpg");
 }
 
-.card:hover .imgBx {
-  width: 150px;
-  height: 150px;
+main:not(.inactive) .card:hover .imgBx {
+  width: 180px;
+  height: 180px;
 }
 
 .card .content {
@@ -183,11 +194,11 @@ main:not(.inactive) .card:hover {
   padding: 10px;
 }
 
-.card:hover .content .msg {
+main:not(.inactive) .card:hover .content .msg {
   opacity: 1;
 }
 
-.card.is-flipped:hover .content .msg {
+main:not(.inactive) .card.is-flipped:hover .content .msg {
   transform: translateX(-100%) rotateY(-180deg);
 }
 
@@ -207,22 +218,23 @@ main:not(.inactive) .card:hover {
   justify-content: center;
   column-gap: 15px;
   transition-duration: 0.7s;
+  text-shadow: 1px 1px 5px $whiteAA;
 }
 
-.card:hover .content .name-tag {
+main:not(.inactive) .card:hover .content .name-tag {
   top: 0;
   margin-top: 0;
   column-gap: 250px;
 }
 
-.card:hover .content .name-tag span {
+main:not(.inactive) .card:hover .content .name-tag span {
   width: min-content;
   display: flex;
   align-items: center;
   height: 100px;
 }
 
-.card.is-flipped .msg {
+main:not(.inactive) .card.is-flipped .msg {
   transform: translateX(-100%) rotateY(-180deg);
 }
 
@@ -237,17 +249,17 @@ main:not(.inactive) .card:hover {
   font-size: 20pt;
   font-style: italic;
   transition: all 0.7s, text-shadow 0s linear;
-  border: 1px solid #00000000;
   transform: scaleY(0);
   display: flex;
   align-items: center;
 }
 
-.card:hover .msg .face {
+main:not(.inactive) .card:hover .msg .face {
   border: 1px solid $jet;
   transform: scaleY(1);
   transform-origin: bottom;
   height: 200px;
+  background-color: $white;
 }
 
 .face.eng {
@@ -259,6 +271,66 @@ main:not(.inactive) .card:hover {
   text-shadow: 1px 1px 10px $pink;
 }
 
-.card:hover .msg .face.span {
+main:not(.inactive) .card:hover .msg .face.span {
   transform: rotateY(180deg) scaleY(1);
+}
+
+
+
+
+
+// message boxes 
+
+
+
+
+
+
+:root {
+  --side: #896c3b;
+  --side-dark: #120e08;
+  --lowlight: #111;
+  --coin-size: 150px;
+}
+
+//animations
+@keyframes spin {
+  0% {
+    width: var(--coin-size);
+    box-shadow: 0 0 0 var(--side-dark);
+    animation-timing-function: ease-in;
+  }
+
+  49.999% {
+    width: 0.1rem;
+    box-shadow: 0.05rem 0 0 var(--side), 0.1rem 0 0 var(--side),
+      0.15rem 0 0 var(--side), 0.2rem 0 0 var(--side), 0.25rem 0 0 var(--side),
+      0.3rem 0 0 var(--side), 0.35rem 0 0 var(--side), 0.4rem 0 0 var(--side),
+      0.45rem 0 0 var(--side), 0.5rem 0 0 var(--side), 0.55rem 0 0 var(--side),
+      0.6rem 0 0 var(--side), 0.65rem 0 0 var(--side), 0.7rem 0 0 var(--side),
+      0.75rem 0 0 var(--side);
+    transform: translateX(-0.375rem);
+    background-color: var(--lowlight);
+    animation-timing-function: linear;
+  }
+
+  50.001% {
+    width: 0.1rem;
+    box-shadow: -0.05rem 0 0 var(--side), -0.1rem 0 0 var(--side),
+      -0.15rem 0 0 var(--side), -0.2rem 0 0 var(--side),
+      -0.25rem 0 0 var(--side), -0.3rem 0 0 var(--side),
+      -0.35rem 0 0 var(--side), -0.4rem 0 0 var(--side),
+      -0.45rem 0 0 var(--side), -0.5rem 0 0 var(--side),
+      -0.55rem 0 0 var(--side), -0.6rem 0 0 var(--side),
+      -0.65rem 0 0 var(--side), -0.7rem 0 0 var(--side),
+      -0.75rem 0 0 var(--side);
+    transform: translateX(0.375rem);
+    background-color: var(--lowlight);
+    animation-timing-function: ease-out;
+  }
+
+  100% {
+    width: var(--coin-size);
+    box-shadow: 0 0 0 var(--side-dark);
+  }
 }
